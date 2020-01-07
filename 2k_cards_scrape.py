@@ -25,8 +25,8 @@ def get_pages():
     
     #insert the orignal link to the fron of the list
     page_lst.insert(0, 'https://2kmtcentral.com/20/players')
-    while counter < 39:
-        page_lst.append(page + '/' + str(counter))
+    while counter < 40:
+        page_lst.append(page + '/' + 'page/' +str(counter))
         counter+=1
     return page_lst    
 
