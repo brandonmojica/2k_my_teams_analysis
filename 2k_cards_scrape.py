@@ -10,9 +10,8 @@ import pprint
 
 
 #Starter Page
-page = 'https://2kmtcentral.com/20/players'
-webpage = requests.get(page)
-soup = BeautifulSoup(webpage.text,'html.parser')
+
+
 
 client = MongoClient()
 database = client['2k_db_2']   # Database name
@@ -20,6 +19,10 @@ collections = database['player_data']
 
 #function that gets all of the pages of the site that I want to scrape
 def get_pages(): 
+
+    page = 'https://2kmtcentral.com/20/players'
+    
+
     page_lst = []
     counter = 1
     
@@ -35,11 +38,11 @@ def get_player_links():
     player_list = []
 
     for i in get_pages():
-        i = webpage
-        for j in BeautifulSoup(webpage.text,'html.parser'):
-            for tag in soup.find_all('a',class_='name box-link'):
-                link = tag['href']
-                player_list.append(link)
+        webpage = requests.get(i)
+        soup = BeautifulSoup(webpage.text,'html.parser')
+        for tag in soup.find_all('a',class_='name box-link'):
+            link = tag['href']
+            player_list.append(link)
 
     return player_list
 
