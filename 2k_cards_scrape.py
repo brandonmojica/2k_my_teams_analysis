@@ -15,7 +15,7 @@ webpage = requests.get(page)
 soup = BeautifulSoup(webpage.text,'html.parser')
 
 client = MongoClient()
-database = client['2k_db']   # Database name
+database = client['2k_db_2']   # Database name
 collections = database['player_data']
 
 #function that gets all of the pages of the site that I want to scrape
