@@ -9,14 +9,6 @@ import re
 import pprint
 
 
-#Starter Page
-
-
-
-client = MongoClient()
-database = client['2k_db_2']   # Database name
-collections = database['player_data']
-
 #function that gets all of the pages of the site that I want to scrape
 def get_pages(): 
 
@@ -164,5 +156,9 @@ def scrape():
         
         
 if __name__ == "__main__":
+    client = MongoClient()
+    database = client['2k_db_2'] 
+    collections = database['player_data']
+
     scrape()
     print('Done!')
